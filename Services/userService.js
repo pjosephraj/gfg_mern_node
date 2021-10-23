@@ -16,8 +16,8 @@ const getUser = async (_id) => {
 
 const saveUser = async (data) => {
   let { first_name, last_name, phone_number, email, password } = data
-  const existingUser = await User.findOne({ email })
-  if (existingUser) { throw { message: 'User already exists!' } }
+  // const existingUser = await User.findOne({ email })
+  // if (existingUser) { throw { message: 'User already exists!!' } }
   const salt = await bcrypt.genSalt(10)
   password = await bcrypt.hash(password, salt)
   const user = new User({ first_name, last_name, phone_number, email, password })

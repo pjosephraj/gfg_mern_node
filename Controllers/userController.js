@@ -22,7 +22,7 @@ const saveUser = async (req, res) => {
     const data = await userService.saveUser(req.body)
     res.send({ data, message: 'User saved successfully' })
   } catch (err) {
-    res.status(400).send({ errors: { message: err.message || 'Unknown Server error!' } })
+    res.status(400).send({ errors: { message: err.customErrorMessage || err.message || 'Unknown Server error!' } })
   }
 
 }
