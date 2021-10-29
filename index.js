@@ -17,6 +17,9 @@ app.use(cors())
 
 // Routes
 app.use(routes)
+app.get('/', (req, res) => {
+  res.send({version: '1.0.0'})
+})
 
 // App Initialize
 app.listen(PORT, () => {
